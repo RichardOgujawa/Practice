@@ -1,11 +1,27 @@
-$backgroundColor1 : yellow; 
-$backgroundColor2 : red; 
-$side : 250px;
+//VARIABLES 
 
-html {
-    background-color: $backgroundColor1;
+* {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
-a {
-    background-color: $backgroundColor2;
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-header {
+    display: flex; 
+    background-color: rgb(22, 22, 22);
+    height: 10vh;
+    width: 100%;
+    align-items: center;
+}
+.navbar-brand {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-size: 1.5em;
 }

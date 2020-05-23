@@ -10,7 +10,7 @@
 
     <title>Contact Us</title>
 
-    <link rel="" href="">
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="" href="">
     <link rel="" href="">
 
@@ -24,11 +24,10 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">My Website </a>
+                <a class="navbar-brand" href="practice.php">My Website </a>
             </div>
         </div>
     </nav>
-
 </body>
 
 </html>
