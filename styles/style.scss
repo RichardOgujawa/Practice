@@ -1,0 +1,11 @@
+$backgroundColor1 : yellow; 
+$backgroundColor2 : red; 
+$side : 250px;
+
+html {
+    background-color: $backgroundColor1;
+}
+
+a {
+    background-color: $backgroundColor2;
+}
