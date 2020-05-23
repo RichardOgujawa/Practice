@@ -29,4 +29,29 @@ html {
   letter-spacing: 0.1em;
   font-size: 1.5em;
 }
+
+label {
+  color: #09db84;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.container:not(.notThis) {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.btn {
+  padding: 10px;
+  background-color: white;
+  color: #09db84;
+  border: 5px double #09db84;
+}
 /*# sourceMappingURL=style.css.map */
