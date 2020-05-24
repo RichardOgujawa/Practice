@@ -62,7 +62,7 @@
 	<nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">    
-          <a class="navbar-brand" href="index.php">My Website</a>
+          <a class="navbar-brand" href="practice.php">My Website</a>
         </div>
       </div>
     </nav>
