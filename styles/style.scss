@@ -1,6 +1,8 @@
 //VARIABLES 
 $teal: rgb(9, 219, 132); 
 $light-teal: rgb(167, 255, 218);
+$question1: 'What is your name? ';
+$answer2: 'I think your name is Mike, would I be right in saying that?';
 * {
     margin: 0;
     padding: 0; 
@@ -49,5 +51,18 @@ label {
     color: white;
     background: $teal;
     border: double $light-teal 1px;
+}
+
+#read-this::before {
+    content: $question1;
+    color:red;
+    font-weight: bold; 
+}
+
+#read-this-2::first-letter{
+    content: $answer2;
+    color: rgb(64, 64, 206);
+    font-weight: bold;
+    font-size: xx-large;
 }
 

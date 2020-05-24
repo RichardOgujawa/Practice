@@ -20,7 +20,7 @@
 				$msgClass = 'alert-danger';
 			} else {
 				// Passed
-				$toEmail = 'support@traversymedia.com';
+				$toEmail = 'richardogujawa7@traversymedia.com';
 				$subject = 'Contact Request From '.$name;
 				$body = '<h2>Contact Request</h2>
 					<h4>Name</h4><p>'.$name.'</p>
