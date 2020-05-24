@@ -3,6 +3,16 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  overflow: hidden;
+}
+
+p {
+  display: block;
+  width: 60%;
+  height: 72vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: unset;
 }
 
 html {
@@ -62,10 +72,26 @@ label {
   font-weight: bold;
 }
 
-#read-this-2::first-letter {
+#read-this-2::-moz-selection {
   content: "I think your name is Mike, would I be right in saying that?";
-  color: #4040ce;
-  font-weight: bold;
-  font-size: xx-large;
+  color: yellow;
+  background: #115726;
+}
+
+#read-this-2::selection {
+  content: "I think your name is Mike, would I be right in saying that?";
+  color: yellow;
+  background: #115726;
+}
+
+button {
+  border-top: 20px #5d1616 solid;
+  border-right: 20px red solid;
+  border-left: 20px orange solid;
+  border-bottom: 20px yellow solid;
+  padding: 10px;
+  background: palegoldenrod;
+  outline: #747474 2px solid;
+  margin: 20px;
 }
 /*# sourceMappingURL=style.css.map */
