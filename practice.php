@@ -1,75 +1,91 @@
 <?php
-//Message Vars
-$msg = ''; //This is the message that will be outputed, it's emtpy because we fill it with text when we need it (i.e. in the Passed and Failed sections)
-$msgClass = ''; //This allows you to give the message some properties, like red text. It's empty for the same reason as above
-//Check For Submit
+	// Message Vars
+	$msg = '';
+	$msgClass = '';
 
-if(filter_has_var(INPUT_POST, 'submit')){
-    //Get Form Data 
-    $name = $_POST['name']; //grab the variables from the form
-    $email = $_POST['email']; 
-    $message = $_POST['message']; 
+	// Check For Submit
+	if(filter_has_var(INPUT_POST, 'submit')){
+		// Get Form Data
+		$name = htmlspecialchars($_POST['name']);
+		$email = htmlspecialchars($_POST['email']);
+		$message = htmlspecialchars($_POST['message']);
 
-    //Check Required Fields
-    if(!empty($email) && !empty($name) && !empty($message)) {
-        //Passed 
-    } else {
-        //Failed
+		// Check Required Fields
+		if(!empty($email) && !empty($name) && !empty($message)){
+			// Passed
+			// Check Email
+			if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+				// Failed
+				$msg = 'Please use a valid email';
+				$msgClass = 'alert-danger';
+			} else {
+				// Passed
+				$toEmail = 'support@traversymedia.com';
+				$subject = 'Contact Request From '.$name;
+				$body = '<h2>Contact Request</h2>
+					<h4>Name</h4><p>'.$name.'</p>
+					<h4>Email</h4><p>'.$email.'</p>
+					<h4>Message</h4><p>'.$message.'</p>
+				';
 
-        $msg = 'Please fill in all fields'; //message outputed if the form isn't filled out
-        $msgClass = 'alert-danger'; //we'll use this class to make the text red in css
-    }
-}
+				// Email Headers
+				$headers = "MIME-Version: 1.0" ."\r\n";
+				$headers .="Content-Type:text/html;charset=UTF-8" . "\r\n";
+
+				// Additional Headers
+				$headers .= "From: " .$name. "<".$email.">". "\r\n";
+
+				if(mail($toEmail, $subject, $body, $headers)){
+					// Email Sent
+					$msg = 'Your email has been sent';
+					$msgClass = 'alert-success';
+				} else {
+					// Failed
+					$msg = 'Your email was not sent';
+					$msgClass = 'alert-danger';
+				}
+			}
+		} else {
+			// Failed
+			$msg = 'Please fill in all fields';
+			$msgClass = 'alert-danger';
+		}
+	}
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="contact us page for the site">
-    <meta name="keywords" content="contact form">
-    <meta name="author" content="Richard Ogujawa">
-
-    <title>Contact Us</title>
-
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="" href="">
-    <link rel="" href="">
-
-    <script src></script>
-    <script src></script>
-    <script src></script>
-
+	<title>Contact Us</title>
+	<link rel="stylesheet" href="styles/style.css">
 </head>
-
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container notThis">
-
-            <div class="navbar-header">
-                <a class="navbar-brand" href="practice.php">My Website </a>
-            </div>
+	<nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">    
+          <a class="navbar-brand" href="index.php">My Website</a>
         </div>
+      </div>
     </nav>
-
-    <div class="container">
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"> <!--PHP_SELF just means that it echoes to itself-->
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" class="form-control" value="">
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="text" name="" class="form-control" value="">
-            </div>
-            <div class="form-group">
-                <label>Message</label>
-                <textarea name="message" class="form-control"></textarea>
-            </div>
-            <br>
-            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-        </form>
+    <div class="container">	
+    	<?php if($msg != ''): ?>
+    		<div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+    	<?php endif; ?>
+      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+	      <div class="form-group">
+		      <label>Name</label>
+		      <input type="text" name="name" class="form-control" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
+	      </div>
+	      <div class="form-group">
+	      	<label>Email</label>
+	      	<input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
+	      </div>
+	      <div class="form-group">
+	      	<label>Message</label>
+	      	<textarea name="message" class="form-control"><?php echo isset($_POST['message']) ? $message : ''; ?></textarea>
+	      </div>
+	      <br>
+	      <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
 </body>
 </html>
