@@ -3,95 +3,15 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  overflow: hidden;
 }
 
-p {
-  display: block;
-  width: 60%;
-  height: 72vh;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: unset;
+body {
+  counter-reset: hi;
 }
 
-html {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.navbar-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #161616;
-  height: 10vh;
-  width: 100%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.navbar-brand {
-  margin-left: 20px;
-  text-decoration: none;
-  color: white;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  font-size: 1.5em;
-}
-
-label {
-  color: #09db84;
-  font-weight: 500;
-  margin-right: 10px;
-}
-
-.form-group {
-  margin-bottom: 10px;
-}
-
-.container:not(.notThis) {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: auto;
-  margin-top: 50px;
-}
-
-.btn {
-  padding: 10px 15px;
-  background-color: white;
-  color: white;
-  background: #09db84;
-  border: double #a7ffda 1px;
-}
-
-#read-this::before {
-  content: "What is your name? ";
+h2::before {
+  counter-increment: hi;
+  content: "Section" counter(hi) ": ";
   color: red;
-  font-weight: bold;
-}
-
-#read-this-2::-moz-selection {
-  content: "I think your name is Mike, would I be right in saying that?";
-  color: yellow;
-  background: #115726;
-}
-
-#read-this-2::selection {
-  content: "I think your name is Mike, would I be right in saying that?";
-  color: yellow;
-  background: #115726;
-}
-
-button {
-  border-top: 20px #5d1616 solid;
-  border-right: 20px red solid;
-  border-left: 20px orange solid;
-  border-bottom: 20px yellow solid;
-  padding: 10px;
-  background: palegoldenrod;
-  outline: #747474 2px solid;
-  margin: 20px;
 }
 /*# sourceMappingURL=style.css.map */

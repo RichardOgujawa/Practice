@@ -7,86 +7,15 @@ $answer2: 'I think your name is Mike, would I be right in saying that?';
     margin: 0;
     padding: 0; 
     box-sizing: border-box; 
-    overflow: hidden;
-
-}
-p {
-    display:block;
-    width: 60%;
-    height: 72vh;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: 
-
-
-}
-html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.navbar-header {
-    display: flex; 
-    background-color: rgb(22, 22, 22);
-    height: 10vh;
-    width: 100%;
-    align-items: center;
-}
-.navbar-brand {
-    margin-left: 20px;
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    font-size: 1.5em;
-}
-
-label {
-    color: rgb(9, 219, 132);
-    font-weight: 500;
-    margin-right: 10px;
-}
-
-.form-group {
-    margin-bottom: 10px;
-}
-
-.container:not(.notThis) {
-    width: fit-content;
-    margin: auto;
-    margin-top: 50px;
-}
-
-.btn {
-    padding: 10px 15px;
-    background-color: white;
-    color: white;
-    background: $teal;
-    border: double $light-teal 1px;
-}
-
-#read-this::before {
-    content: $question1;
-    color:red;
-    font-weight: bold; 
 
 }
 
-#read-this-2::selection{
-    content: $answer2;
-    color: yellow;
-    background: rgb(17, 87, 38);
+body {
+    counter-reset: hi;
 }
 
-button {
-    border-top: 20px rgb(93, 22, 22) solid;
-    border-right: 20px red solid;
-    border-left: 20px orange solid;
-    border-bottom: 20px yellow solid;
-    padding: 10px;
-    background: palegoldenrod;
-    outline: rgb(116, 116, 116) 2px solid;
-    margin: 20px;
-
+h2::before {
+    counter-increment: hi;
+    content: "Section" counter(hi) ": ";
+    color: red; 
 }
-
-
